@@ -79,13 +79,23 @@ def days_to_earnings(year, month, day):
 def create_index_html(sorted_list):
 	# create html file
 	wr_file = open("/var/www/index.html", 'w')
-	head = '''<html>
+
+	head = 	'''
+	<html>
 	  <head>
 	    <meta http-equiv="refresh" content="3600">
+          <style>
+             table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+             }
+          </style>
 	  </head>
 	  <body>
 	    <h2>Quarterly Earnings Call Dates</h2>
-	    <br />'''
+	    <br />
+            <table style="width:25%">
+              <tr> <td><b>Ticker</b></td> <td><b>Days till earnings call</b></td> <td><b>Date of Earnings Call</b></td> </tr>'''
 
 	wr_file.write("%s\n" % head)
 
@@ -96,11 +106,11 @@ def create_index_html(sorted_list):
 	for l in sorted_list:
 		m = l[1];		d = l[2];		y = l[3]; 		ticker = l[4];		t_m = str(l[0])
 		mI=MONTH[m];	dI=int(d);		yI=int(y);		
-		txt = '      <li><a href="http://finance.yahoo.com/q?s='+ticker+'">' +ticker+ '</a> - Earnings Call in '+t_m+' days  (<a href="'+'http://biz.yahoo.com/research/earncal/' +ticker[0]+ '/' +ticker+ '.html">' + m +" "+ d +" "+ y +" "+')</a></li>'
+		txt = '	       <tr> <td><a href="http://finance.yahoo.com/q?s='+ticker+'">' +ticker+ '</a></td>   <td>'+t_m+' days</td>   <td><a href="'+'http://biz.yahoo.com/research/earncal/' +ticker[0]+ '/' +ticker+ '.html">' + m +" "+ d +" "+ y +" "+'</a></td> </tr>' 
 		# print txt
 		wr_file.write("%s\n" % txt)
 
-	tail = "    <br /><p>Last updated:  " +t1+ "</p>"+'''
+	tail = "	</table> <br /><p>Last updated:  " +t1+ "</p>"+'''
 	  </body>
 	</html>
 	'''
