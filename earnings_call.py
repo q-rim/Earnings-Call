@@ -10,12 +10,14 @@ import subprocess
 import time
 import datetime
 
-MONTH = {"January":1, "February":2, "March":3, "April":4, "May":5, "June":6, "July":7, "August":8, "September":9, "October":10, "November":11, "December":12}
+MONTH = {"January":1, "February":2, "March":3, "April":4, "May":5, "June":6, "July":7, 
+	"August":8, "September":9, "October":10, "November":11, "December":12}
+
+line_list = [];
 
 def lynx_get_ticker_earnings_date(ticker_list):
 	# Lynx text web-browser gets the dates of ticker.  Returns ['date Ticker1', 'date Ticker2' ...]
 	txt = open(ticker_list ,'r')
-	#txt = open("ticker1.list" ,'r')
 	line=[]
 	for ticker in txt:					# get line
 		ticker = ticker[:len(ticker)-1];		#print ticker
@@ -25,8 +27,6 @@ def lynx_get_ticker_earnings_date(ticker_list):
 		CMD = 'lynx --dump http://biz.yahoo.com/research/earncal/'+ticker_1st_char+'/'+ticker+ \
 			'.html -useragent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_0) AppleWebKit/537.1 + \
 			'' (KHTML, like Gecko) Chrome/21.0.1180.79 Safari/537.1 L_y_n_x/2.7"  | grep "US Earnings Calendar for"'
-		#CMD = 'lynx --dump http://biz.yahoo.com/research/earncal/'+ticker_1st_char+'/'+ticker+'.html | grep "US Earnings Calendar for"'
-		#print CMD
 
 		p = subprocess.Popen(CMD, stdout=subprocess.PIPE, shell=True)
 		(output, err) = p.communicate()
@@ -40,13 +40,16 @@ def lynx_get_ticker_earnings_date(ticker_list):
 
 
 def get_sorted_list_stock(line):
-	# get sorted list of list of each stock:  Returns:  [ ['57', 'July', '20', '2015', 'NFLX'], ['58', 'July', '21', '2015', 'FB']]
+	# get sorted list of list of each stock: 
+	#   Returns:  [ ['57', 'July', '20', '2015', 'NFLX'], ['58', 'July', '21', '2015', 'FB']]
 
 	# put elements of line into a list:	
-	line_list=[]
+	#line_list=[]
 	for i in range(len(line)):
 		# print line[i]
-		list_of_values = line[i].split();		#print list_of_values 	# split into a list of values:     ['July', '15,', '2015', 'GOOGL']
+		list_of_values = line[i].split();		#split into a list of values: ['July', '15,', '2015', 'GOOGL']
+		#print list_of_values
+		global line_list
 		line_list.append(list_of_values)
 
 	# strip trailing comma from date element
@@ -81,7 +84,7 @@ def days_to_earnings(year, month, day):
 
 def create_index_html(sorted_list):
 	# create html file
-	wr_file = open("/var/www/html/EarningsCall/index.html", 'w')
+	wr_file = open("/var/www/html/earnings/index.html", 'w')
 
 	head = 	'''
 	<html>
@@ -128,14 +131,15 @@ def email_earnings_date(mailing_list):
 	# email the option's list 10 days before the earnings release date.
 	# create email text 
 	outgoing_mail = False
-	email_txt="http://www.your_website.com/EarningsCall/\n\n\n"
+	email_txt="http://www.your_website.com/earnings/\n\n\n"
 	for l in line_list:
-		t_minus = l[0];		t_m = str(l[0]);	m = l[1];		d = l[2];		y = l[3]; 		ticker = l[4];		
+		t_minus = l[0];    t_m = str(l[0]);    m = l[1];    d = l[2];    y = l[3];    ticker = l[4];		
 		#print '\n', t_minus, ticker 
 		#if (t_minus<55) and (t_minus>0):			# used for testing
 		#if True:
 		if (t_minus==1) or (t_minus==7) or (t_minus==14):
-			email_txt = email_txt + ticker + ' earnings call in '+t_m+ ' days.   (Earnings Call Date: ' +m+ ' ' +d+ ', ' +y+')\n';			#print email_txt
+			email_txt = email_txt + ticker + ' earnings call in '+t_m+ \
+			' days.   (Earnings Call Date: ' +m+ ' ' +d+ ', ' +y+')\n';		#print email_txt
 			outgoing_mail = True
 	#t1 = datetime.datetime.now();
         #t1 = str(t1)[0:19];
@@ -157,17 +161,24 @@ def email_earnings_date(mailing_list):
 
 
 # Main()
-# Lynx text web-browser gets the dates of ticker.  Returns [date Ticker]
-line = lynx_get_ticker_earnings_date("/var/www/html/EarningsCall/ticker.list");		#print "line:", line;	print; print 
+def main():
+	# Lynx text web-browser gets the dates of ticker.  Returns [date Ticker]
+	line = lynx_get_ticker_earnings_date("/var/www/html/earnings/ticker.list");		#print "line:", line;	print; print 
 
-# get sorted list of list of each stock:  Returns:  [ ['57', 'July', '20', '2015', 'NFLX'], ['58', 'July', '21', '2015', 'FB']]
-line_list = get_sorted_list_stock(line)
-#print line_list
+	# get sorted list of list of each stock:  
+	#   Returns:  [ ['57', 'July', '20', '2015', 'NFLX'], ['58', 'July', '21', '2015', 'FB']]
+	line_list = get_sorted_list_stock(line)
+	#print line_list
 
-# create html file
-create_index_html(line_list)
+	# create html file
+	create_index_html(line_list)
 
-# email the option's list 10 days before the earnings release date.
-mailing_list = ["bob@gmail.com"]
-email_earnings_date(mailing_list)
+	# email the option's list 10 days before the earnings release date.
+	mailing_list = ["jane@gmail.com", "bob@gmail.com", "john@gmail.com", "alice@gmail.com"]
+	email_earnings_date(mailing_list)
+
+
+if __name__ == "__main__":
+	main()
+
 
