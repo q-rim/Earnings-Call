@@ -1,8 +1,9 @@
 #! /usr/bin/python
 
+# Author: Kyurim
 # this program gives you alearts on Stock Market Earnings Call.  
-# Automatically populates all data by scraping webpages based on your Stock Ticker input.
-# 1. emails notification to you 10 days and 1 day prior to the Earnings Call date.
+# Automatically populates all data by scraping webpages based on your Stock Ticker input(Ticker.txt file).
+# 1. emails notification to you @14, 7, and 1 day prior to the Earnings Call date.
 # 2. automatically creates a webpage of Stock Market Earnings Call dates.  
 
 import subprocess
@@ -21,7 +22,9 @@ def lynx_get_ticker_earnings_date(ticker_list):
 		ticker_1st_char = ticker[0];			#print ticker_1st_char
 
 
-		CMD = 'lynx --dump http://biz.yahoo.com/research/earncal/'+ticker_1st_char+'/'+ticker+'.html -useragent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_0) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.79 Safari/537.1 L_y_n_x/2.7"  | grep "US Earnings Calendar for"'
+		CMD = 'lynx --dump http://biz.yahoo.com/research/earncal/'+ticker_1st_char+'/'+ticker+ \
+			'.html -useragent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_0) AppleWebKit/537.1 + \
+			'' (KHTML, like Gecko) Chrome/21.0.1180.79 Safari/537.1 L_y_n_x/2.7"  | grep "US Earnings Calendar for"'
 		#CMD = 'lynx --dump http://biz.yahoo.com/research/earncal/'+ticker_1st_char+'/'+ticker+'.html | grep "US Earnings Calendar for"'
 		#print CMD
 
@@ -78,7 +81,7 @@ def days_to_earnings(year, month, day):
 
 def create_index_html(sorted_list):
 	# create html file
-	wr_file = open("/var/www/index.html", 'w')
+	wr_file = open("/var/www/html/EarningsCall/index.html", 'w')
 
 	head = 	'''
 	<html>
@@ -95,7 +98,7 @@ def create_index_html(sorted_list):
 	    <h2>Quarterly Earnings Call Dates</h2>
 	    <br />
             <table style="width:25%">
-              <tr> <td><b>Ticker</b></td> <td><b>Days till earnings call</b></td> <td><b>Date of Earnings Call</b></td> </tr>'''
+              <tr> <td><b>Ticker</b></td> <td><b>Earnings Call In</b></td> <td><b>Earnings Call Date</b></td> </tr>'''
 
 	wr_file.write("%s\n" % head)
 
@@ -106,7 +109,11 @@ def create_index_html(sorted_list):
 	for l in sorted_list:
 		m = l[1];		d = l[2];		y = l[3]; 		ticker = l[4];		t_m = str(l[0])
 		mI=MONTH[m];	dI=int(d);		yI=int(y);		
-		txt = '	       <tr> <td><a href="http://finance.yahoo.com/q?s='+ticker+'">' +ticker+ '</a></td>   <td>'+t_m+' days</td>   <td><a href="'+'http://biz.yahoo.com/research/earncal/' +ticker[0]+ '/' +ticker+ '.html">' + m +" "+ d +" "+ y +" "+'</a></td> </tr>' 
+		txt = '	       <tr> <td><a href="https://www.google.com/finance?q='+ticker+'">' +ticker+ '</a></td> '+ \
+			'  <td align="right">'+t_m+' days</td>  '+ \
+			'  <td align="right"><a href="http://biz.yahoo.com/research/earncal/' + ticker[0]+ '/' +ticker+ '.html">' + \
+			 m +" "+ d +" "+ y +" "+'</a></td> </tr>' 
+
 		# print txt
 		wr_file.write("%s\n" % txt)
 
@@ -121,7 +128,7 @@ def email_earnings_date(mailing_list):
 	# email the option's list 10 days before the earnings release date.
 	# create email text 
 	outgoing_mail = False
-	email_txt="http://<put_your_earnings_call_URL_here>\n\n\n"
+	email_txt="http://www.your_website.com/EarningsCall/\n\n\n"
 	for l in line_list:
 		t_minus = l[0];		t_m = str(l[0]);	m = l[1];		d = l[2];		y = l[3]; 		ticker = l[4];		
 		#print '\n', t_minus, ticker 
@@ -137,7 +144,7 @@ def email_earnings_date(mailing_list):
 	# send email to mailing list
 	if outgoing_mail == True:
 		for email in mailing_list:
-			CMD = 'echo "' +email_txt+ '" | mail -s "Earnings Call Notification" ' +email
+			CMD = 'echo "' +email_txt+ '" | mail -s "Earnings Call Notification" -a "From: Kyurim" ' +email
 			#print CMD
 
 			p = subprocess.Popen(CMD, stdout=subprocess.PIPE, shell=True)
@@ -151,7 +158,7 @@ def email_earnings_date(mailing_list):
 
 # Main()
 # Lynx text web-browser gets the dates of ticker.  Returns [date Ticker]
-line = lynx_get_ticker_earnings_date("/var/www/ticker.list");		#print "line:", line;	print; print 
+line = lynx_get_ticker_earnings_date("/var/www/html/EarningsCall/ticker.list");		#print "line:", line;	print; print 
 
 # get sorted list of list of each stock:  Returns:  [ ['57', 'July', '20', '2015', 'NFLX'], ['58', 'July', '21', '2015', 'FB']]
 line_list = get_sorted_list_stock(line)
@@ -161,6 +168,6 @@ line_list = get_sorted_list_stock(line)
 create_index_html(line_list)
 
 # email the option's list 10 days before the earnings release date.
-mailing_list = ["john@gmail.com", "jane@gmail.com", "abc.test@gmail.com"]
+mailing_list = ["bob@gmail.com"]
 email_earnings_date(mailing_list)
 

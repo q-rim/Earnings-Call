@@ -1,31 +1,40 @@
-<html>
+
+	<html>
 	  <head>
 	    <meta http-equiv="refresh" content="3600">
+          <style>
+             table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+             }
+          </style>
 	  </head>
 	  <body>
 	    <h2>Quarterly Earnings Call Dates</h2>
 	    <br />
-      <li><a href="http://finance.yahoo.com/q?s=NOK">NOK</a> - Earnings Call in -1555 days  (<a href="http://biz.yahoo.com/research/earncal/N/NOK.html">April 21 2011 )</a></li>
-      <li><a href="http://finance.yahoo.com/q?s=GPRO">GPRO</a> - Earnings Call in -3 days  (<a href="http://biz.yahoo.com/research/earncal/G/GPRO.html">July 21 2015 )</a></li>
-      <li><a href="http://finance.yahoo.com/q?s=AMZN">AMZN</a> - Earnings Call in -1 days  (<a href="http://biz.yahoo.com/research/earncal/A/AMZN.html">July 23 2015 )</a></li>
-      <li><a href="http://finance.yahoo.com/q?s=P">P</a> - Earnings Call in -1 days  (<a href="http://biz.yahoo.com/research/earncal/P/P.html">July 23 2015 )</a></li>
-      <li><a href="http://finance.yahoo.com/q?s=UA">UA</a> - Earnings Call in -1 days  (<a href="http://biz.yahoo.com/research/earncal/U/UA.html">July 23 2015 )</a></li>
-      <li><a href="http://finance.yahoo.com/q?s=BP.L">BP.L</a> - Earnings Call in 4 days  (<a href="http://biz.yahoo.com/research/earncal/B/BP.L.html">July 28 2015 )</a></li>
-      <li><a href="http://finance.yahoo.com/q?s=TWTR">TWTR</a> - Earnings Call in 4 days  (<a href="http://biz.yahoo.com/research/earncal/T/TWTR.html">July 28 2015 )</a></li>
-      <li><a href="http://finance.yahoo.com/q?s=FB">FB</a> - Earnings Call in 5 days  (<a href="http://biz.yahoo.com/research/earncal/F/FB.html">July 29 2015 )</a></li>
-      <li><a href="http://finance.yahoo.com/q?s=SCTY">SCTY</a> - Earnings Call in 5 days  (<a href="http://biz.yahoo.com/research/earncal/S/SCTY.html">July 29 2015 )</a></li>
-      <li><a href="http://finance.yahoo.com/q?s=VA">VA</a> - Earnings Call in 6 days  (<a href="http://biz.yahoo.com/research/earncal/V/VA.html">July 30 2015 )</a></li>
-      <li><a href="http://finance.yahoo.com/q?s=XOM">XOM</a> - Earnings Call in 7 days  (<a href="http://biz.yahoo.com/research/earncal/X/XOM.html">July 31 2015 )</a></li>
-      <li><a href="http://finance.yahoo.com/q?s=FSLR">FSLR</a> - Earnings Call in 10 days  (<a href="http://biz.yahoo.com/research/earncal/F/FSLR.html">August 3 2015 )</a></li>
-      <li><a href="http://finance.yahoo.com/q?s=TSLA">TSLA</a> - Earnings Call in 12 days  (<a href="http://biz.yahoo.com/research/earncal/T/TSLA.html">August 5 2015 )</a></li>
-      <li><a href="http://finance.yahoo.com/q?s=BABA">BABA</a> - Earnings Call in 19 days  (<a href="http://biz.yahoo.com/research/earncal/B/BABA.html">August 12 2015 )</a></li>
-      <li><a href="http://finance.yahoo.com/q?s=BB.TO">BB.TO</a> - Earnings Call in 63 days  (<a href="http://biz.yahoo.com/research/earncal/B/BB.TO.html">September 25 2015 )</a></li>
-      <li><a href="http://finance.yahoo.com/q?s=NFLX">NFLX</a> - Earnings Call in 81 days  (<a href="http://biz.yahoo.com/research/earncal/N/NFLX.html">October 13 2015 )</a></li>
-      <li><a href="http://finance.yahoo.com/q?s=GOOGL">GOOGL</a> - Earnings Call in 82 days  (<a href="http://biz.yahoo.com/research/earncal/G/GOOGL.html">October 14 2015 )</a></li>
-      <li><a href="http://finance.yahoo.com/q?s=XLNX">XLNX</a> - Earnings Call in 82 days  (<a href="http://biz.yahoo.com/research/earncal/X/XLNX.html">October 14 2015 )</a></li>
-      <li><a href="http://finance.yahoo.com/q?s=AAPL">AAPL</a> - Earnings Call in 87 days  (<a href="http://biz.yahoo.com/research/earncal/A/AAPL.html">October 19 2015 )</a></li>
-      <li><a href="http://finance.yahoo.com/q?s=YHOO">YHOO</a> - Earnings Call in 87 days  (<a href="http://biz.yahoo.com/research/earncal/Y/YHOO.html">October 19 2015 )</a></li>
-    <br /><p>Last updated:  2015-07-23 16:00:05</p>
+            <table style="width:25%">
+              <tr> <td><b>Ticker</b></td> <td><b>Earnings Call In</b></td> <td><b>Earnings Call Date</b></td> </tr>
+	       <tr> <td><a href="https://www.google.com/finance?q=NOK">NOK</a></td>   <td align="right">-1648 days</td>    <td align="right"><a href="http://biz.yahoo.com/research/earncal/N/NOK.html">April 21 2011 </a></td> </tr>
+	       <tr> <td><a href="https://www.google.com/finance?q=GOOGL">GOOGL</a></td>   <td align="right">-3 days</td>    <td align="right"><a href="http://biz.yahoo.com/research/earncal/G/GOOGL.html">October 22 2015 </a></td> </tr>
+	       <tr> <td><a href="https://www.google.com/finance?q=AAPL">AAPL</a></td>   <td align="right">2 days</td>    <td align="right"><a href="http://biz.yahoo.com/research/earncal/A/AAPL.html">October 27 2015 </a></td> </tr>
+	       <tr> <td><a href="https://www.google.com/finance?q=BABA">BABA</a></td>   <td align="right">2 days</td>    <td align="right"><a href="http://biz.yahoo.com/research/earncal/B/BABA.html">October 27 2015 </a></td> </tr>
+	       <tr> <td><a href="https://www.google.com/finance?q=BP.L">BP.L</a></td>   <td align="right">2 days</td>    <td align="right"><a href="http://biz.yahoo.com/research/earncal/B/BP.L.html">October 27 2015 </a></td> </tr>
+	       <tr> <td><a href="https://www.google.com/finance?q=TWTR">TWTR</a></td>   <td align="right">2 days</td>    <td align="right"><a href="http://biz.yahoo.com/research/earncal/T/TWTR.html">October 27 2015 </a></td> </tr>
+	       <tr> <td><a href="https://www.google.com/finance?q=GPRO">GPRO</a></td>   <td align="right">3 days</td>    <td align="right"><a href="http://biz.yahoo.com/research/earncal/G/GPRO.html">October 28 2015 </a></td> </tr>
+	       <tr> <td><a href="https://www.google.com/finance?q=FSLR">FSLR</a></td>   <td align="right">4 days</td>    <td align="right"><a href="http://biz.yahoo.com/research/earncal/F/FSLR.html">October 29 2015 </a></td> </tr>
+	       <tr> <td><a href="https://www.google.com/finance?q=SCTY">SCTY</a></td>   <td align="right">4 days</td>    <td align="right"><a href="http://biz.yahoo.com/research/earncal/S/SCTY.html">October 29 2015 </a></td> </tr>
+	       <tr> <td><a href="https://www.google.com/finance?q=VA">VA</a></td>   <td align="right">4 days</td>    <td align="right"><a href="http://biz.yahoo.com/research/earncal/V/VA.html">October 29 2015 </a></td> </tr>
+	       <tr> <td><a href="https://www.google.com/finance?q=XOM">XOM</a></td>   <td align="right">5 days</td>    <td align="right"><a href="http://biz.yahoo.com/research/earncal/X/XOM.html">October 30 2015 </a></td> </tr>
+	       <tr> <td><a href="https://www.google.com/finance?q=TSLA">TSLA</a></td>   <td align="right">9 days</td>    <td align="right"><a href="http://biz.yahoo.com/research/earncal/T/TSLA.html">November 3 2015 </a></td> </tr>
+	       <tr> <td><a href="https://www.google.com/finance?q=FB">FB</a></td>   <td align="right">10 days</td>    <td align="right"><a href="http://biz.yahoo.com/research/earncal/F/FB.html">November 4 2015 </a></td> </tr>
+	       <tr> <td><a href="https://www.google.com/finance?q=BB.TO">BB.TO</a></td>   <td align="right">54 days</td>    <td align="right"><a href="http://biz.yahoo.com/research/earncal/B/BB.TO.html">December 18 2015 </a></td> </tr>
+	       <tr> <td><a href="https://www.google.com/finance?q=NFLX">NFLX</a></td>   <td align="right">85 days</td>    <td align="right"><a href="http://biz.yahoo.com/research/earncal/N/NFLX.html">January 18 2016 </a></td> </tr>
+	       <tr> <td><a href="https://www.google.com/finance?q=XLNX">XLNX</a></td>   <td align="right">86 days</td>    <td align="right"><a href="http://biz.yahoo.com/research/earncal/X/XLNX.html">January 19 2016 </a></td> </tr>
+	       <tr> <td><a href="https://www.google.com/finance?q=YHOO">YHOO</a></td>   <td align="right">92 days</td>    <td align="right"><a href="http://biz.yahoo.com/research/earncal/Y/YHOO.html">January 25 2016 </a></td> </tr>
+	       <tr> <td><a href="https://www.google.com/finance?q=AMZN">AMZN</a></td>   <td align="right">94 days</td>    <td align="right"><a href="http://biz.yahoo.com/research/earncal/A/AMZN.html">January 27 2016 </a></td> </tr>
+	       <tr> <td><a href="https://www.google.com/finance?q=UA">UA</a></td>   <td align="right">100 days</td>    <td align="right"><a href="http://biz.yahoo.com/research/earncal/U/UA.html">February 2 2016 </a></td> </tr>
+	       <tr> <td><a href="https://www.google.com/finance?q=P">P</a></td>   <td align="right">101 days</td>    <td align="right"><a href="http://biz.yahoo.com/research/earncal/P/P.html">February 3 2016 </a></td> </tr>
+	</table> <br /><p>Last updated:  2015-10-25 00:37:03</p>
 	  </body>
 	</html>
 	
