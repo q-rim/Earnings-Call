@@ -14,27 +14,23 @@
 	    <br />
             <table style="width:25%">
               <tr> <td><b>Ticker</b></td> <td><b>Earnings Call In</b></td> <td><b>Earnings Call Date</b></td> </tr>
-	       <tr> <td><a href="https://www.google.com/finance?q=NOK">NOK</a></td>   <td align="right">-1648 days</td>    <td align="right"><a href="http://biz.yahoo.com/research/earncal/N/NOK.html">April 21 2011 </a></td> </tr>
-	       <tr> <td><a href="https://www.google.com/finance?q=GOOGL">GOOGL</a></td>   <td align="right">-3 days</td>    <td align="right"><a href="http://biz.yahoo.com/research/earncal/G/GOOGL.html">October 22 2015 </a></td> </tr>
-	       <tr> <td><a href="https://www.google.com/finance?q=AAPL">AAPL</a></td>   <td align="right">2 days</td>    <td align="right"><a href="http://biz.yahoo.com/research/earncal/A/AAPL.html">October 27 2015 </a></td> </tr>
-	       <tr> <td><a href="https://www.google.com/finance?q=BABA">BABA</a></td>   <td align="right">2 days</td>    <td align="right"><a href="http://biz.yahoo.com/research/earncal/B/BABA.html">October 27 2015 </a></td> </tr>
-	       <tr> <td><a href="https://www.google.com/finance?q=BP.L">BP.L</a></td>   <td align="right">2 days</td>    <td align="right"><a href="http://biz.yahoo.com/research/earncal/B/BP.L.html">October 27 2015 </a></td> </tr>
-	       <tr> <td><a href="https://www.google.com/finance?q=TWTR">TWTR</a></td>   <td align="right">2 days</td>    <td align="right"><a href="http://biz.yahoo.com/research/earncal/T/TWTR.html">October 27 2015 </a></td> </tr>
-	       <tr> <td><a href="https://www.google.com/finance?q=GPRO">GPRO</a></td>   <td align="right">3 days</td>    <td align="right"><a href="http://biz.yahoo.com/research/earncal/G/GPRO.html">October 28 2015 </a></td> </tr>
-	       <tr> <td><a href="https://www.google.com/finance?q=FSLR">FSLR</a></td>   <td align="right">4 days</td>    <td align="right"><a href="http://biz.yahoo.com/research/earncal/F/FSLR.html">October 29 2015 </a></td> </tr>
-	       <tr> <td><a href="https://www.google.com/finance?q=SCTY">SCTY</a></td>   <td align="right">4 days</td>    <td align="right"><a href="http://biz.yahoo.com/research/earncal/S/SCTY.html">October 29 2015 </a></td> </tr>
-	       <tr> <td><a href="https://www.google.com/finance?q=VA">VA</a></td>   <td align="right">4 days</td>    <td align="right"><a href="http://biz.yahoo.com/research/earncal/V/VA.html">October 29 2015 </a></td> </tr>
-	       <tr> <td><a href="https://www.google.com/finance?q=XOM">XOM</a></td>   <td align="right">5 days</td>    <td align="right"><a href="http://biz.yahoo.com/research/earncal/X/XOM.html">October 30 2015 </a></td> </tr>
-	       <tr> <td><a href="https://www.google.com/finance?q=TSLA">TSLA</a></td>   <td align="right">9 days</td>    <td align="right"><a href="http://biz.yahoo.com/research/earncal/T/TSLA.html">November 3 2015 </a></td> </tr>
-	       <tr> <td><a href="https://www.google.com/finance?q=FB">FB</a></td>   <td align="right">10 days</td>    <td align="right"><a href="http://biz.yahoo.com/research/earncal/F/FB.html">November 4 2015 </a></td> </tr>
-	       <tr> <td><a href="https://www.google.com/finance?q=BB.TO">BB.TO</a></td>   <td align="right">54 days</td>    <td align="right"><a href="http://biz.yahoo.com/research/earncal/B/BB.TO.html">December 18 2015 </a></td> </tr>
-	       <tr> <td><a href="https://www.google.com/finance?q=NFLX">NFLX</a></td>   <td align="right">85 days</td>    <td align="right"><a href="http://biz.yahoo.com/research/earncal/N/NFLX.html">January 18 2016 </a></td> </tr>
-	       <tr> <td><a href="https://www.google.com/finance?q=XLNX">XLNX</a></td>   <td align="right">86 days</td>    <td align="right"><a href="http://biz.yahoo.com/research/earncal/X/XLNX.html">January 19 2016 </a></td> </tr>
-	       <tr> <td><a href="https://www.google.com/finance?q=YHOO">YHOO</a></td>   <td align="right">92 days</td>    <td align="right"><a href="http://biz.yahoo.com/research/earncal/Y/YHOO.html">January 25 2016 </a></td> </tr>
-	       <tr> <td><a href="https://www.google.com/finance?q=AMZN">AMZN</a></td>   <td align="right">94 days</td>    <td align="right"><a href="http://biz.yahoo.com/research/earncal/A/AMZN.html">January 27 2016 </a></td> </tr>
-	       <tr> <td><a href="https://www.google.com/finance?q=UA">UA</a></td>   <td align="right">100 days</td>    <td align="right"><a href="http://biz.yahoo.com/research/earncal/U/UA.html">February 2 2016 </a></td> </tr>
-	       <tr> <td><a href="https://www.google.com/finance?q=P">P</a></td>   <td align="right">101 days</td>    <td align="right"><a href="http://biz.yahoo.com/research/earncal/P/P.html">February 3 2016 </a></td> </tr>
-	</table> <br /><p>Last updated:  2015-10-25 00:37:03</p>
+	       <tr> <td><a href="https://www.google.com/finance?q=NFLX">NFLX</a></td>   <td align="right">3 days</td>    <td align="right"><a href="https://finance.yahoo.com/calendar/earnings?symbol=NFLX">Jul 17 2017 </a></td> </tr>
+	       <tr> <td><a href="https://www.google.com/finance?q=P">P</a></td>   <td align="right">5 days</td>    <td align="right"><a href="https://finance.yahoo.com/calendar/earnings?symbol=P">Jul 19 2017 </a></td> </tr>
+	       <tr> <td><a href="https://www.google.com/finance?q=GOOGL">GOOGL</a></td>   <td align="right">10 days</td>    <td align="right"><a href="https://finance.yahoo.com/calendar/earnings?symbol=GOOGL">Jul 24 2017 </a></td> </tr>
+	       <tr> <td><a href="https://www.google.com/finance?q=AMZN">AMZN</a></td>   <td align="right">12 days</td>    <td align="right"><a href="https://finance.yahoo.com/calendar/earnings?symbol=AMZN">Jul 26 2017 </a></td> </tr>
+	       <tr> <td><a href="https://www.google.com/finance?q=FB">FB</a></td>   <td align="right">12 days</td>    <td align="right"><a href="https://finance.yahoo.com/calendar/earnings?symbol=FB">Jul 26 2017 </a></td> </tr>
+	       <tr> <td><a href="https://www.google.com/finance?q=XLNX">XLNX</a></td>   <td align="right">12 days</td>    <td align="right"><a href="https://finance.yahoo.com/calendar/earnings?symbol=XLNX">Jul 26 2017 </a></td> </tr>
+	       <tr> <td><a href="https://www.google.com/finance?q=GPRO">GPRO</a></td>   <td align="right">13 days</td>    <td align="right"><a href="https://finance.yahoo.com/calendar/earnings?symbol=GPRO">Jul 27 2017 </a></td> </tr>
+	       <tr> <td><a href="https://www.google.com/finance?q=TWTR">TWTR</a></td>   <td align="right">13 days</td>    <td align="right"><a href="https://finance.yahoo.com/calendar/earnings?symbol=TWTR">Jul 27 2017 </a></td> </tr>
+	       <tr> <td><a href="https://www.google.com/finance?q=XOM">XOM</a></td>   <td align="right">14 days</td>    <td align="right"><a href="https://finance.yahoo.com/calendar/earnings?symbol=XOM">Jul 28 2017 </a></td> </tr>
+	       <tr> <td><a href="https://www.google.com/finance?q=AAPL">AAPL</a></td>   <td align="right">18 days</td>    <td align="right"><a href="https://finance.yahoo.com/calendar/earnings?symbol=AAPL">Aug 01 2017 </a></td> </tr>
+	       <tr> <td><a href="https://www.google.com/finance?q=FSLR">FSLR</a></td>   <td align="right">18 days</td>    <td align="right"><a href="https://finance.yahoo.com/calendar/earnings?symbol=FSLR">Aug 01 2017 </a></td> </tr>
+	       <tr> <td><a href="https://www.google.com/finance?q=UA">UA</a></td>   <td align="right">18 days</td>    <td align="right"><a href="https://finance.yahoo.com/calendar/earnings?symbol=UA">Aug 01 2017 </a></td> </tr>
+	       <tr> <td><a href="https://www.google.com/finance?q=TSLA">TSLA</a></td>   <td align="right">19 days</td>    <td align="right"><a href="https://finance.yahoo.com/calendar/earnings?symbol=TSLA">Aug 02 2017 </a></td> </tr>
+	       <tr> <td><a href="https://www.google.com/finance?q=BABA">BABA</a></td>   <td align="right">26 days</td>    <td align="right"><a href="https://finance.yahoo.com/calendar/earnings?symbol=BABA">Aug 09 2017 </a></td> </tr>
+	       <tr> <td><a href="https://www.google.com/finance?q=BP.L">BP.L</a></td>   <td align="right">109 days</td>    <td align="right"><a href="https://finance.yahoo.com/calendar/earnings?symbol=BP.L">Oct 31 2017 </a></td> </tr>
+	       <tr> <td><a href="https://www.google.com/finance?q=BB.TO">BB.TO</a></td>   <td align="right">252 days</td>    <td align="right"><a href="https://finance.yahoo.com/calendar/earnings?symbol=BB.TO">Mar 23 2018 </a></td> </tr>
+	</table> <br /><p>Last updated:  2017-07-13 13:39:09</p>
 	  </body>
 	</html>
 	

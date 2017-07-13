@@ -6,13 +6,15 @@
 # 1. emails notification to you @14, 7, and 1 day prior to the Earnings Call date.
 # 2. automatically creates a webpage of Stock Market Earnings Call dates.  
 
+# This file calls "earnings_get_dates.py <ticker>" which returns date in the following format:
+# Jul 17, 2017
+
 import subprocess
 import time
 import datetime
 
-MONTH = {"January":1, "February":2, "March":3, "April":4, "May":5, "June":6, "July":7, 
-	"August":8, "September":9, "October":10, "November":11, "December":12}
-
+DIR = "./"			# set the working directory
+MONTH = {"Jan":1, "Feb":2, "Mar":3, "Apr":4, "May":5, "Jun":6, "Jul":7, "Aug":8, "Sep":9, "Oct":10, "Nov":11, "Dec":12}
 line_list = [];
 
 def lynx_get_ticker_earnings_date(ticker_list):
@@ -23,17 +25,18 @@ def lynx_get_ticker_earnings_date(ticker_list):
 		ticker = ticker[:len(ticker)-1];		#print ticker
 		ticker_1st_char = ticker[0];			#print ticker_1st_char
 
-
-		CMD = 'lynx --dump http://biz.yahoo.com/research/earncal/'+ticker_1st_char+'/'+ticker+ \
-			'.html -useragent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_0) AppleWebKit/537.1 + \
-			'' (KHTML, like Gecko) Chrome/21.0.1180.79 Safari/537.1 L_y_n_x/2.7"  | grep "US Earnings Calendar for"'
+		CMD = DIR + 'earnings_get_dates.py ' + ticker
+		print CMD
 
 		p = subprocess.Popen(CMD, stdout=subprocess.PIPE, shell=True)
 		(output, err) = p.communicate()
-		#print output
+		print output
 
-		date = output[28:len(output)-1]; 		#print date
-		line.append(date + "  " + ticker)
+		if output != "":				# handles the case where earnings_get_dates throws errors.
+			date = output[:-1]; 		#print date
+			print date
+			line.append(date + "  " + ticker)
+			print line
 
 	txt.close()
 	return line
@@ -84,7 +87,7 @@ def days_to_earnings(year, month, day):
 
 def create_index_html(sorted_list):
 	# create html file
-	wr_file = open("/var/www/html/earnings/index.html", 'w')
+	wr_file = open(DIR + "index.html", 'w')
 
 	head = 	'''
 	<html>
@@ -114,7 +117,7 @@ def create_index_html(sorted_list):
 		mI=MONTH[m];	dI=int(d);		yI=int(y);		
 		txt = '	       <tr> <td><a href="https://www.google.com/finance?q='+ticker+'">' +ticker+ '</a></td> '+ \
 			'  <td align="right">'+t_m+' days</td>  '+ \
-			'  <td align="right"><a href="http://biz.yahoo.com/research/earncal/' + ticker[0]+ '/' +ticker+ '.html">' + \
+			'  <td align="right"><a href="https://finance.yahoo.com/calendar/earnings?symbol=' +ticker+ '">' + \
 			 m +" "+ d +" "+ y +" "+'</a></td> </tr>' 
 
 		# print txt
@@ -163,7 +166,8 @@ def email_earnings_date(mailing_list):
 # Main()
 def main():
 	# Lynx text web-browser gets the dates of ticker.  Returns [date Ticker]
-	line = lynx_get_ticker_earnings_date("/var/www/html/earnings/ticker.list");		#print "line:", line;	print; print 
+	# line = lynx_get_ticker_earnings_date("/var/www/html/earnings/ticker.list");		#print "line:", line;	print; print 
+	line = lynx_get_ticker_earnings_date(DIR + "ticker.list");		#print "line:", line;	print; print 
 
 	# get sorted list of list of each stock:  
 	#   Returns:  [ ['57', 'July', '20', '2015', 'NFLX'], ['58', 'July', '21', '2015', 'FB']]
@@ -174,11 +178,9 @@ def main():
 	create_index_html(line_list)
 
 	# email the option's list 10 days before the earnings release date.
-	mailing_list = ["jane@gmail.com", "bob@gmail.com", "john@gmail.com", "alice@gmail.com"]
-	email_earnings_date(mailing_list)
+	# mailing_list = ["jane@gmail.com", "bob@gmail.com", "john@gmail.com", "alice@gmail.com"]
+	# email_earnings_date(mailing_list)
 
 
 if __name__ == "__main__":
 	main()
-
-
