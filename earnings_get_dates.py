@@ -19,10 +19,9 @@ import datetime
 ticker = sys.argv[1]
 MONTHS_DICT = {"Jan":1 , "Feb":2, "Mar":3, "Apr":4, "May":5, "Jun":6, "Jul":7, "Aug":8, "Sep":9, "Oct":10, "Nov":11, "Dec":12}
 
-
-def daysToEarnings(line):
-	# arg (str):  takes in a line of command output
-	# return (int):  days until earning
+def listLineToDate(line):
+	# arg (list):   takes in list containing the line of words
+	# return (str): "Sep 1, 2017"
 
 	# Get Dates
 	word = line.split(" "); 		#print word
@@ -31,17 +30,29 @@ def daysToEarnings(line):
 		if w in MONTHS_DICT:
 			break;
 		word = word[1:]
-		print word
+		# print word
 	# print word
 
 	month = word[0]
 	day = word[1]
 	year = word[2]
-	# print "month, day, year(str): ", month, day, year
+	date = month + " " + day + " " + year[:-1]; 
+	return date
 
-	mm = int(MONTHS_DICT[month])
-	dd = int(day[:-1])				# [:-1] strips off the trailing comma
-	yyyy = int(year[:-1])			# [:-1] strips off the trailing comma
+def daysToEarnings(date):
+	# arg (str): "Sep 1, 2017"
+	# return (int):  days until earning
+	
+	#print "date:  ", date
+	word = date.split(" "); 		#print word
+	month = word[0]; 	#print month
+	day = word[1];		#print day
+	year = word[2];		#print year
+	# print "dayToEarnings(): month, day, year(str): ", month, day, year
+
+	mm = int(MONTHS_DICT[month]); 	#print mm
+	dd = int(day[:-1]);				#print dd		# [:-1] strips off the trailing comma
+	yyyy = int(year);				#print yyyy
 	# print "month, day, year(int): ", mm , dd, yyyy
 
 	# convert earnings call date to epoch
@@ -59,24 +70,33 @@ def daysToEarnings(line):
 	oneDay = 86400 # sec
 	timeToEarnings = int(time_epoch_earn) - int(time_epoch_curr)
 	daysToEarnings = timeToEarnings / oneDay
-	print "daysToEarnings: " , daysToEarnings
+	#print "daysToEarnings: " , daysToEarnings
 	return daysToEarnings
 
 
 
 CMD = 'lynx --dump https://finance.yahoo.com/calendar/earnings?symbol='+ticker+ \
 	'    -useragent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_0) AppleWebKit/537.1 + \
-	'' (KHTML, like Gecko) Chrome/21.0.1180.79 Safari/537.1 L_y_n_x/2.7"  | grep -A 3 "Showing Earnings for:" | tail -1'
-
+	'' (KHTML, like Gecko) Chrome/21.0.1180.79 Safari/537.1 L_y_n_x/2.7"  | grep -A 10 "Showing Earnings for:"'
 # print CMD
 
 p = subprocess.Popen(CMD, stdout=subprocess.PIPE, shell=True)
 (output, err) = p.communicate()
-print "CMD OUTPUT> ", output, "\ntype: ", type(output)
+# print "OUTPUT> ", output, "\ntype: ", type(output)
 
 
+lines = output.split("\n");		# list of lines of output
+lines_dates = []
+for l in lines:					# list of lines with dates on it only
+	if "EST" in l:
+		lines_dates.append(l)
+# print "\nlines_dates", lines_dates, type(lines_dates)
 
-if daysToEarnings(output) > 90:
-	print "not the right date - value greater than 3 mo"
-else:
-	print "earnings within 3 mo"
+# Get line with right date
+for l in lines_dates:
+	daysEarn = daysToEarnings(listLineToDate(l))
+	if daysEarn >= -7 and daysEarn < 83:
+		print listLineToDate(l)
+		break
+	else:
+		pass
