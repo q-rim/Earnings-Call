@@ -31,7 +31,7 @@ def listLineToDate(line):
 			break;
 		word = word[1:]
 		# print word
-	# print word
+        print word
 
 	month = word[0]
 	day = word[1]
@@ -78,7 +78,7 @@ def daysToEarnings(date):
 CMD = 'lynx --dump https://finance.yahoo.com/calendar/earnings?symbol='+ticker+ \
 	'    -useragent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_0) AppleWebKit/537.1 + \
 	'' (KHTML, like Gecko) Chrome/21.0.1180.79 Safari/537.1 L_y_n_x/2.7"  | grep -A 10 "Showing Earnings for:"'
-# print CMD
+print CMD
 
 p = subprocess.Popen(CMD, stdout=subprocess.PIPE, shell=True)
 (output, err) = p.communicate()
@@ -88,14 +88,14 @@ p = subprocess.Popen(CMD, stdout=subprocess.PIPE, shell=True)
 lines = output.split("\n");		# list of lines of output
 lines_dates = []
 for l in lines:					# list of lines with dates on it only
-	if "EST" in l:
+	if ", 20" in l:
 		lines_dates.append(l)
 # print "\nlines_dates", lines_dates, type(lines_dates)
 
 # Get line with right date
 for l in lines_dates:
 	daysEarn = daysToEarnings(listLineToDate(l))
-	if daysEarn >= -7 and daysEarn < 83:
+        if daysEarn >= -7 and daysEarn < 83:
 		print listLineToDate(l)
 		break
 	else:
